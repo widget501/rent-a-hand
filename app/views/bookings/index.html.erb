@@ -1,2 +1,17 @@
-<h1>Bookings#index</h1>
-<p>Find me in app/views/bookings/index.html.erb</p>
+<div class="container">
+  <h3>Bookings#index app/views/bookings/index.html.erb</h3>
+
+
+  <h1>Bookings</h1>
+
+  <div id="bookings">
+    <% @bookings.each do |booking| %>
+      <%= render booking %>
+      <p>
+        <%= link_to "Show this booking", booking %>
+      </p>
+    <% end %>
+  </div>
+
+  <%= link_to "New booking", new_booking_path %>
+</div>

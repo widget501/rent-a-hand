@@ -1,15 +1,17 @@
 Rails.application.routes.draw do
-  get 'bookings/index'
-  get 'bookings/show'
-  get 'bookings/create'
-  get 'bookings/destroy'
-  get 'services/index'
-  get 'services/show'
-  get 'services/create'
-  get 'services/destroy'
+  # get 'bookings/index'
+  # get 'bookings/show'
+  # get 'bookings/create'
+  # get 'bookings/destroy'
+  # get 'services/index'
+  # get 'services/show'
+  # get 'services/create'
+  # get 'services/destroy'
   devise_for :users
   root to: "pages#home"
   # root to: "home#index"
+  resources :services
+  resources :bookings
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
