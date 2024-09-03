@@ -1,2 +1,8 @@
-<h1>Services#show</h1>
-<p>Find me in app/views/services/show.html.erb</p>
+<h1><%= @service.name %></h1>
+<p><%= @service.description %></p>
+<p>Price: <%= @service.price %></p>
+
+<%= link_to "Delete",
+  service_path(@service),
+  data: {turbo_method: :delete, turbo_confirm: "Are you sure you want to delete this service?"}
+%>
