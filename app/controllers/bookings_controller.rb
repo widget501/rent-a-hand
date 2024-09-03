@@ -1,5 +1,6 @@
 class BookingsController < ApplicationController
   def index
+    # jp
   end
 
   def show
