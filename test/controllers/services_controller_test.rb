@@ -1,6 +1,11 @@
 require "test_helper"
 
 class ServicesControllerTest < ActionDispatch::IntegrationTest
+<<<<<<< HEAD
+  # test "the truth" do
+  #   assert true
+  # end
+=======
   test "should get index" do
     get services_index_url
     assert_response :success
@@ -20,4 +25,5 @@ class ServicesControllerTest < ActionDispatch::IntegrationTest
     get services_destroy_url
     assert_response :success
   end
+>>>>>>> master
 end
