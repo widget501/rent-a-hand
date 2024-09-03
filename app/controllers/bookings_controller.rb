@@ -11,6 +11,10 @@ class BookingsController < ApplicationController
     @booking = Booking.new
   end
 
+  def edit
+    @booking = Booking.find(params[:id])
+  end
+
   def create
     @booking = Booking.new(bookings_params)
     if @booking.save
@@ -18,10 +22,6 @@ class BookingsController < ApplicationController
     else
       render :new, status: :unprocessable_entity
     end
-  end
-
-  def edit
-    @booking = Booking.find(params[:id])
   end
 
   def update
