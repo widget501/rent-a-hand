@@ -5,7 +5,7 @@
 
   <div>
     <%= link_to "Edit this booking", edit_booking_path(@booking) %> |
-    <%= link_to "Back to bookings", bookings_path %>
+    <%= link_to "View all my bookings", dashboard_path , class: "btn btn-primary"%>
 
     <%= button_to "Delete this booking", @booking, method: :destroy %>
   </div>

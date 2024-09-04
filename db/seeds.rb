@@ -14,9 +14,6 @@ Service.destroy_all
 User.destroy_all
 
 user = User.create!(email: "joe@doe.com", password: "password", address: "123 Four Street, My Town", first_name: "Joe", last_name: "Doe")
-
-
-user = User.create!(email: "joe@doe.com", password: "password", address: "123 Four Street, My Town", first_name: "Joe", last_name: "Doe")
 user1 = User.create!(email: "joe1@doe.com", password: "password", address: "123 Four Street, My Town", first_name: "Joe", last_name: "Doe")
 user3 = User.create!(email: "joe2@doe.com", password: "password", address: "123 Four Street, My Town", first_name: "Joe", last_name: "Doe")
 user4 = User.create!(email: "joe3@doe.com", password: "password", address: "123 Four Street, My Town", first_name: "Joe", last_name: "Doe")
@@ -36,12 +33,12 @@ user5 = User.create!(email: "joe4@doe.com", password: "password", address: "123 
   service.save!
   puts "Service created successfully!"
 
-  file = URI.open("https://res.cloudinary.com/dbsjj5ynm/image/upload/v1724965272/samples/ecommerce/car-interior-design.jpg")
-  service = Service.new(title: "Driver", description: "A great driver", price: 300, location: "Bermuda")
-  service.user = user2
-  service.photo.attach(io: file, filename: "car-interior-design.jpg", content_type: "image/jpeg")
-  service.save!
-  puts "Service created successfully!"
+  # file = URI.open("https://res.cloudinary.com/dbsjj5ynm/image/upload/v1724965272/samples/ecommerce/car-interior-design.jpg")
+  # service = Service.new(title: "Driver", description: "A great driver", price: 300, location: "Bermuda")
+  # service.user = user2
+  # service.photo.attach(io: file, filename: "car-interior-design.jpg", content_type: "image/jpeg")
+  # service.save!
+  # puts "Service created successfully!"
 
   file = URI.open("https://res.cloudinary.com/dbsjj5ynm/image/upload/v1724965272/samples/people/boy-snow-hoodie.jpg")
   service = Service.new(title: "Nanny", description: "The mother you never had", price: 300, location: "Bermuda")

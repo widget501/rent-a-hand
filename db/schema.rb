@@ -52,7 +52,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_09_03_142242) do
     t.datetime "updated_at", null: false
     t.index ["service_id"], name: "index_bookings_on_service_id"
     t.index ["user_id"], name: "index_bookings_on_user_id"
-  enddb/schema.rb
+  end
 
   create_table "services", force: :cascade do |t|
     t.string "category"
