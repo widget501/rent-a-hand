@@ -1,14 +1,15 @@
 Rails.application.routes.draw do
 
   devise_for :users
-  root to: "pages#home"
+  # root to: "pages#home"
   # root to: "home#index"
+  root to: "services#index"
 
   resources :services do
     resources :bookings, only: [:new, :index, :create]
   end
 
-  # resources :bookings
+  resources :bookings
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

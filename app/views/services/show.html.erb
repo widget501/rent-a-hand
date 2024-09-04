@@ -2,6 +2,8 @@
 <p><%= @service.description %></p>
 <p>Price: <%= @service.price %></p>
 
+<%= link_to "Book Now!", new_service_booking_path(@service), class: "btn btn-primary"  %>
+
 <%= link_to "Delete",
   service_path(@service),
   data: {turbo_method: :delete, turbo_confirm: "Are you sure you want to delete this service?"}
