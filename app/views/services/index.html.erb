@@ -1,10 +1,9 @@
 <h1>Find a Hand</h1>
 <ul>
   <% @services.each do |service| %>
-    <li>%= link_to service.name, service_path(service) %>
+    <li><%= link_to service.title, service_path(service) %>
       <%= cl_image_tag(service.photo.url,
       width: 400, height: 300, crop: :fill) %>
     </li>
   <% end %>
 </ul>
-
