@@ -2,16 +2,17 @@ class BookingsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:show, :index]
 
   def index
-    @bookings = Booking.all
+    @bookings = current_user.bookings
   end
 
   def show
     @booking = Booking.find(params[:id])
+    # authorize @booking
   end
 
   def new
+    @booking = Booking.new
     @service = Service.find(params[:service_id])
-    @booking = Booking.new(service: @service)
   end
 
   def edit
@@ -20,11 +21,11 @@ class BookingsController < ApplicationController
 
   def create
     @service = Service.find(params[:service_id])
-    @booking = @service.bookings.new(booking_params)
+    @booking = Booking.new(booking_params)
     @booking.service = @service
     @booking.user = current_user
     if @booking.save
-      redirect_to root_path, notice: 'Booking created successfully.'
+      redirect_to @booking, notice: 'Booking created successfully.'
     else
       render :new, status: :unprocessable_entity
     end
@@ -48,6 +49,6 @@ class BookingsController < ApplicationController
   private
 
   def booking_params
-    params.require(:booking).permit(:start_date, :end_date, :status, :user_id, :service_id)
+    params.require(:booking).permit(:start_date, :end_date, :status)
   end
 end

@@ -2,7 +2,7 @@
 <ul>
   <% @services.each do |service| %>
     <li><%= link_to service.title, service_path(service) %>
-      <%= cl_image_tag(service.photo.url,
+      <%= cl_image_tag(service.photo.key,
       width: 400, height: 300, crop: :fill) %>
     </li>
   <% end %>
