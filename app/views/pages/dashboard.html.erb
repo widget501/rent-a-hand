@@ -4,3 +4,20 @@
     <li><%= link_to booking.start_date, service_bookings_path(booking) %>
     </li>
   <% end %>
+
+<% @services.each do |service| %>
+  <%= service.title  %>
+  <% service.booking.each do |booking| %>
+  <li>
+      <%= booking.user.first_name %>
+      <%= booking.start_date %>
+      <%= booking.end_date %>
+      <%= booking.status %>
+  </li>
+
+  <% if booking.pending? %>
+        <%= button_to 'Accept', accept_booking_path(booking), method: :patch, class: "btn btn-success" %>
+        <%= button_to 'Decline', decline_booking_path(booking), method: :patch, class: "btn btn-danger" %>
+      <% end %>
+    <% end %>
+  <% end %>

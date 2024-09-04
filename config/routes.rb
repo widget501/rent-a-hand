@@ -9,7 +9,12 @@ Rails.application.routes.draw do
     resources :bookings, only: [:new, :index, :create]
   end
 
-  resources :bookings
+  resources :bookings, only: [:edit, :index, :update, :destroy] do
+    member do
+      patch :accept   # Route for accepting a booking
+      patch :decline  # Route for declining a booking
+    end
+  end
 
   get "dashboard", to: "pages#dashboard"
 
