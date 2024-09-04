@@ -7,8 +7,14 @@ class ServicesController < ApplicationController
     @service = Service.find(params[:id])
   end
 
+  def new
+    @service = Service.new
+  end
+
   def create
     @service = Service.new(service_params)
+    @service.user = current_user
+
     if @service.save
       redirect_to @service, notice: 'Service was successfully created.'
     else
@@ -28,4 +34,3 @@ class ServicesController < ApplicationController
     params.require(:service).permit(:title, :description, photos: [])
   end
 end
-

@@ -9,8 +9,12 @@
 #   end
 require "open-uri"
 
-User.delete_all
-Service.delete_all
+Service.destroy_all
+
+User.destroy_all
+
+user = User.create!(email: "joe@doe.com", password: "password", address: "123 Four Street, My Town", first_name: "Joe", last_name: "Doe")
+
 
 user = User.create!(email: "joe@doe.com", password: "password", address: "123 Four Street, My Town", first_name: "Joe", last_name: "Doe")
 user1 = User.create!(email: "joe1@doe.com", password: "password", address: "123 Four Street, My Town", first_name: "Joe", last_name: "Doe")
