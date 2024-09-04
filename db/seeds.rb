@@ -16,92 +16,50 @@ User.destroy_all
 user = User.create!(email: "joe@doe.com", password: "password", address: "123 Four Street, My Town", first_name: "Joe", last_name: "Doe")
 
 
-begin
+user = User.create!(email: "joe@doe.com", password: "password", address: "123 Four Street, My Town", first_name: "Joe", last_name: "Doe")
+user1 = User.create!(email: "joe1@doe.com", password: "password", address: "123 Four Street, My Town", first_name: "Joe", last_name: "Doe")
+user3 = User.create!(email: "joe2@doe.com", password: "password", address: "123 Four Street, My Town", first_name: "Joe", last_name: "Doe")
+user4 = User.create!(email: "joe3@doe.com", password: "password", address: "123 Four Street, My Town", first_name: "Joe", last_name: "Doe")
+user5 = User.create!(email: "joe4@doe.com", password: "password", address: "123 Four Street, My Town", first_name: "Joe", last_name: "Doe")
+
   file = URI.open("https://res.cloudinary.com/dbsjj5ynm/image/upload/v1724965279/samples/smile.jpg")
   service = Service.new(title: "Gardener", description: "A great groundsman", price: 300, location: "Bermuda")
   service.user = user
   service.photo.attach(io: file, filename: "new-image.jpg", content_type: "image/jpeg")
   service.save!
   puts "Service created successfully!"
-rescue OpenURI::HTTPError => e
-  puts "Failed to open URI: #{e.message}"
-rescue => e
-  puts "An error occurred: #{e.message}"
-ensure
-  file.close if file
-end
 
-begin
-  file = URI.open("https://res.cloudinary.com/dbsjj5ynm/image/upload/v1724965279/samples/smile.jpg")
+  file = URI.open("https://res.cloudinary.com/dbsjj5ynm/image/upload/v1724965277/samples/two-ladies.jpg")
   service = Service.new(title: "Plumber", description: "A great plumber", price: 300, location: "Bermuda")
-  service.user = user
+  service.user = user1
   service.photo.attach(io: file, filename: "new-image.jpg", content_type: "image/jpeg")
   service.save!
   puts "Service created successfully!"
-rescue OpenURI::HTTPError => e
-  puts "Failed to open URI: #{e.message}"
-rescue => e
-  puts "An error occurred: #{e.message}"
-ensure
-  file.close if file
-end
 
-begin
-  file = URI.open("https://res.cloudinary.com/dbsjj5ynm/image/upload/v1724965279/samples/smile.jpg")
+  file = URI.open("https://res.cloudinary.com/dbsjj5ynm/image/upload/v1724965272/samples/ecommerce/car-interior-design.jpg")
   service = Service.new(title: "Driver", description: "A great driver", price: 300, location: "Bermuda")
-  service.user = user
+  service.user = user2
   service.photo.attach(io: file, filename: "new-image.jpg", content_type: "image/jpeg")
   service.save!
   puts "Service created successfully!"
-rescue OpenURI::HTTPError => e
-  puts "Failed to open URI: #{e.message}"
-rescue => e
-  puts "An error occurred: #{e.message}"
-ensure
-  file.close if file
-end
 
-begin
-  file = URI.open("https://res.cloudinary.com/dbsjj5ynm/image/upload/v1724965279/samples/smile.jpg")
+  file = URI.open("https://res.cloudinary.com/dbsjj5ynm/image/upload/v1724965272/samples/people/boy-snow-hoodie.jpg")
   service = Service.new(title: "Nanny", description: "The mother you never had", price: 300, location: "Bermuda")
-  service.user = user
+  service.user = user3
   service.photo.attach(io: file, filename: "new-image.jpg", content_type: "image/jpeg")
   service.save!
   puts "Service created successfully!"
-rescue OpenURI::HTTPError => e
-  puts "Failed to open URI: #{e.message}"
-rescue => e
-  puts "An error occurred: #{e.message}"
-ensure
-  file.close if file
-end
 
-begin
-  file = URI.open("https://res.cloudinary.com/dbsjj5ynm/image/upload/v1724965279/samples/smile.jpg")
+  file = URI.open("https://res.cloudinary.com/dbsjj5ynm/image/upload/v1724965277/samples/two-ladies.jpg")
   service = Service.new(title: "Erotic Dancer", description: "A dancer to give you new life", price: 300, location: "Bermuda")
-  service.user = user
+  service.user = user4
   service.photo.attach(io: file, filename: "new-image.jpg", content_type: "image/jpeg")
   service.save!
   puts "Service created successfully!"
-rescue OpenURI::HTTPError => e
-  puts "Failed to open URI: #{e.message}"
-rescue => e
-  puts "An error occurred: #{e.message}"
-ensure
-  file.close if file
-end
 
-begin
-  file = URI.open("https://res.cloudinary.com/dbsjj5ynm/image/upload/v1724965279/samples/smile.jpg")
+  file = URI.open("https://res.cloudinary.com/dbsjj5ynm/image/upload/v1724965271/samples/people/smiling-man.jpg")
   service = Service.new(title: "Handyman", description: "Great All-round", price: 300, location: "Bermuda")
-  service.user = user
+  service.user = user5
   service.photo.attach(io: file, filename: "new-image.jpg", content_type: "image/jpeg")
   service.save!
   puts "Service created successfully!"
-rescue OpenURI::HTTPError => e
-  puts "Failed to open URI: #{e.message}"
-rescue => e
-  puts "An error occurred: #{e.message}"
-ensure
-  file.close if file
-end
