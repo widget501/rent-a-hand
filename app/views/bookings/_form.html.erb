@@ -1,5 +1,5 @@
 <div class="container">
-  <%= simple_form_for(@booking) do |f| %>
+  <%= simple_form_for([@booking.service, @booking]) do |f| %>
     <%= f.error_notification %>
     <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
@@ -7,8 +7,8 @@
       <%= f.input :start_date %>
       <%= f.input :end_date %>
       <%= f.input :status %>
-      <%= f.association :user %>
-      <%= f.association :service %>
+      <%# <%= f.association :user %>
+      <%# <%= f.association :service %>
     </div>
 
     <div class="form-actions">

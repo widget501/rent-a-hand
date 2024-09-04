@@ -1,7 +1,7 @@
 <h1>Find a Hand</h1>
 <ul>
   <% @services.each do |service| %>
-    <li>%= link_to service.name, service_path(service) %></li>
+    <li> <%= link_to service.title, service_path(service) %></li>
   <% end %>
 </ul>
 
