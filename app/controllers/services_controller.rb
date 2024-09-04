@@ -4,7 +4,7 @@ class ServicesController < ApplicationController
   end
 
   def show
-
+    @service = Service.find(params[:id])
   end
 
   def create
@@ -20,5 +20,11 @@ class ServicesController < ApplicationController
     @service = Service.find(params[:id])
     @service.destroy
     redirect_to services_url, notice: 'Service was successfully destroyed.'
+  end
+
+  private
+
+  def service_params
+    params.require(:service).permit(:title, :description, photos: [])
   end
 end

@@ -9,27 +9,86 @@
 #   end
 require "open-uri"
 
-file = URI.parse("https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/NES-Console-Set.jpg/1200px-NES-Console-Set.jpg").open
-service = Service.new(title: "Gardener", description: "A great groundsman", price: 300, location: "Bermuda")
-service.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
-service.save
+begin
+  file = URI.open("https://res.cloudinary.com/dbsjj5ynm/image/upload/v1724965279/samples/smile.jpg")
+  service = Service.new(title: "Gardener", description: "A great groundsman", price: 300, location: "Bermuda")
+  service.photo.attach(io: file, filename: "new-image.jpg", content_type: "image/jpeg")
+  service.save!
+  puts "Service created successfully!"
+rescue OpenURI::HTTPError => e
+  puts "Failed to open URI: #{e.message}"
+rescue => e
+  puts "An error occurred: #{e.message}"
+ensure
+  file.close if file
+end
 
-file = URI.parse("https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/NES-Console-Set.jpg/1200px-NES-Console-Set.jpg").open
-service = Service.new(title: "Plumber", description: "A great unclogger of turds",price: 300, location: "Bermuda")
-service.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
-service.save
+begin
+  file = URI.open("https://res.cloudinary.com/dbsjj5ynm/image/upload/v1724965279/samples/smile.jpg")
+  service = Service.new(title: "Plumber", description: "A great plumber", price: 300, location: "Bermuda")
+  service.photo.attach(io: file, filename: "new-image.jpg", content_type: "image/jpeg")
+  service.save!
+  puts "Service created successfully!"
+rescue OpenURI::HTTPError => e
+  puts "Failed to open URI: #{e.message}"
+rescue => e
+  puts "An error occurred: #{e.message}"
+ensure
+  file.close if file
+end
 
-file = URI.parse("https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/NES-Console-Set.jpg/1200px-NES-Console-Set.jpg").open
-service = Service.new(title: "Driver", description: "Jason Statham to the rescue", price: 300, location: "Bermuda")
-service.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
-service.save
+begin
+  file = URI.open("https://res.cloudinary.com/dbsjj5ynm/image/upload/v1724965279/samples/smile.jpg")
+  service = Service.new(title: "Driver", description: "A great driver", price: 300, location: "Bermuda")
+  service.photo.attach(io: file, filename: "new-image.jpg", content_type: "image/jpeg")
+  service.save!
+  puts "Service created successfully!"
+rescue OpenURI::HTTPError => e
+  puts "Failed to open URI: #{e.message}"
+rescue => e
+  puts "An error occurred: #{e.message}"
+ensure
+  file.close if file
+end
 
-file = URI.parse("https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/NES-Console-Set.jpg/1200px-NES-Console-Set.jpg").open
-service = Service.new(title: "Nanny", description: "The mm yo never had", price: 300, location: "Bermuda")
-service.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
-service.save
+begin
+  file = URI.open("https://res.cloudinary.com/dbsjj5ynm/image/upload/v1724965279/samples/smile.jpg")
+  service = Service.new(title: "Nanny", description: "The mother you never had", price: 300, location: "Bermuda")
+  service.photo.attach(io: file, filename: "new-image.jpg", content_type: "image/jpeg")
+  service.save!
+  puts "Service created successfully!"
+rescue OpenURI::HTTPError => e
+  puts "Failed to open URI: #{e.message}"
+rescue => e
+  puts "An error occurred: #{e.message}"
+ensure
+  file.close if file
+end
 
-file = URI.parse("https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/NES-Console-Set.jpg/1200px-NES-Console-Set.jpg").open
-service = Service.new(title: "Dancer erotica", description: "Belly dancer to shake it up", price: 699, location: "Bermuda")
-service.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
-service.save
+begin
+  file = URI.open("https://res.cloudinary.com/dbsjj5ynm/image/upload/v1724965279/samples/smile.jpg")
+  service = Service.new(title: "Erotic Dancer", description: "A dancer to give you new life", price: 300, location: "Bermuda")
+  service.photo.attach(io: file, filename: "new-image.jpg", content_type: "image/jpeg")
+  service.save!
+  puts "Service created successfully!"
+rescue OpenURI::HTTPError => e
+  puts "Failed to open URI: #{e.message}"
+rescue => e
+  puts "An error occurred: #{e.message}"
+ensure
+  file.close if file
+end
+
+begin
+  file = URI.open("https://res.cloudinary.com/dbsjj5ynm/image/upload/v1724965279/samples/smile.jpg")
+  service = Service.new(title: "Handyman", description: "Great All-round", price: 300, location: "Bermuda")
+  service.photo.attach(io: file, filename: "new-image.jpg", content_type: "image/jpeg")
+  service.save!
+  puts "Service created successfully!"
+rescue OpenURI::HTTPError => e
+  puts "Failed to open URI: #{e.message}"
+rescue => e
+  puts "An error occurred: #{e.message}"
+ensure
+  file.close if file
+end
