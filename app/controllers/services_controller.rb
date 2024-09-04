@@ -21,4 +21,11 @@ class ServicesController < ApplicationController
     @service.destroy
     redirect_to services_url, notice: 'Service was successfully destroyed.'
   end
+
+  private
+
+  def service_params
+    params.require(:service).permit(:title, :description, photos: [])
+  end
 end
+
