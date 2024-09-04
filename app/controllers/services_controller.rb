@@ -28,3 +28,4 @@ class ServicesController < ApplicationController
     params.require(:service).permit(:title, :description, photos: [])
   end
 end
+
