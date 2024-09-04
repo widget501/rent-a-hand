@@ -1,12 +1,13 @@
 <h1>Find a Hand</h1>
 <ul>
   <% @services.each do |service| %>
-    <li>%= link_to service.name, service_path(service) %></li>
+    <li><%= link_to service.name, service_path(service) %>
+    <%= cl_image_tag(service.photo.url,
+      width: 400, height: 300, crop: :fill) %>
+      </li>
   <% end %>
 </ul>
 
-<%= cl_image_tag("https://res.cloudinary.com/dbsjj5ynm/image/upload/v1724965279/samples/smile.jpg",
-      width: 400, height: 300, crop: :fill) %>
-
-<%= cl_image_tag("https://res.cloudinary.com/dbsjj5ynm/image/upload/v1724965277/samples/two-ladies.jpg",
+<%#
+<%= cl_image_tag("https://res.cloudinary.com/dbsjj5ynm/image/upload/v1724965280/samples/man-portrait.jpg",
       width: 150, height: 150, crop: :thumb, gravity: :face) %>
