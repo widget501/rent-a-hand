@@ -20,14 +20,14 @@ user4 = User.create!(email: "joe3@doe.com", password: "password", first_name: "J
 user5 = User.create!(email: "joe4@doe.com", password: "password", first_name: "Joe", last_name: "Doe")
 
   file = URI.open("https://res.cloudinary.com/dbsjj5ynm/image/upload/v1724965279/samples/smile.jpg")
-  service = Service.new(title: "Gardener", description: "A great groundsman", price: 300, location: "123 Long Street, Gardens, 8001")
+  service = Service.new(title: "Gardener", description: "A great groundsman", price: 300, location: "123 Long Street, Cape Town")
   service.user = user
   service.photo.attach(io: file, filename: "smile.jpg", content_type: "image/jpeg")
   service.save!
   puts "Service created successfully!"
 
   file = URI.open("https://res.cloudinary.com/dbsjj5ynm/image/upload/v1724965277/samples/two-ladies.jpg")
-  service = Service.new(title: "Plumber", description: "A great plumber", price: 300, location: "45 Main Road, Rondebosch, 7700")
+  service = Service.new(title: "Plumber", description: "A great plumber", price: 300, location: "77 Main Road, Sea Point, 8005")
   service.user = user1
   service.photo.attach(io: file, filename: "two-ladies.jpg", content_type: "image/jpeg")
   service.save!
@@ -41,21 +41,21 @@ user5 = User.create!(email: "joe4@doe.com", password: "password", first_name: "J
   # puts "Service created successfully!"
 
   file = URI.open("https://res.cloudinary.com/dbsjj5ynm/image/upload/v1724965272/samples/people/boy-snow-hoodie.jpg")
-  service = Service.new(title: "Nanny", description: "The mother you never had", price: 300, location: "67 Victoria Road, Camps Bay, 8001")
+  service = Service.new(title: "Nanny", description: "The mother you never had", price: 300, location: "45 Bree Street, Cape Town CBD, 8001")
   service.user = user3
   service.photo.attach(io: file, filename: "boy-snow-hoodie.jpg", content_type: "image/jpeg")
   service.save!
   puts "Service created successfully!"
 
   file = URI.open("https://res.cloudinary.com/dbsjj5ynm/image/upload/v1724965277/samples/two-ladies.jpg")
-  service = Service.new(title: "Erotic Dancer", description: "A dancer to give you new life", price: 300, location: "89 Orange Street, Woodstock, 7900")
+  service = Service.new(title: "Erotic Dancer", description: "A dancer to give you new life", price: 300, location: "101 Kloof Street, Gardens, 8001")
   service.user = user4
   service.photo.attach(io: file, filename: "two-ladies.jpg", content_type: "image/jpeg")
   service.save!
   puts "Service created successfully!"
 
   file = URI.open("https://res.cloudinary.com/dbsjj5ynm/image/upload/v1724965271/samples/people/smiling-man.jpg")
-  service = Service.new(title: "Handyman", description: "Great All-round", price: 300, location: "101 Somerset Road, Green Point, 8001")
+  service = Service.new(title: "Handyman", description: "Great All-round", price: 300, location: "55 Victoria Road, Camps Bay, 8005")
   service.user = user5
   service.photo.attach(io: file, filename: "smiling-man.jpg", content_type: "image/jpeg")
   service.save!
