@@ -1,12 +1,14 @@
-<h1><%= @service.title %></h1>
-<p><%= @service.description %></p>
-<p>Price: <%= @service.price %></p>
+<div class="container d-flex align-items">
+  <h1 class="text-center text-primary h1-sm"><%= @service.title %></h1>
+  <p class="text-center text-secondary"><%= @service.description %></p>
+  <p>Price: <%= @service.price %></p>
 
-<%= link_to "Book Now!", new_service_booking_path(@service), class: "btn btn-primary"  %>
+  <%= link_to "Book Now!", new_service_booking_path(@service), class: "btn btn-primary"  %>
 
-<%= link_to "Delete",
-  service_path(@service),
-  data: {turbo_method: :delete, turbo_confirm: "Are you sure you want to delete this service?"}
-%>
+  <%= link_to "Delete",
+    service_path(@service),
+    data: {turbo_method: :delete, turbo_confirm: "Are you sure you want to delete this service?"}
+  %>
 
-<%= cl_image_tag @service.photo.key, height: 300, width: 400, crop: :fill %>
+  <%= cl_image_tag @service.photo.key, height: 300, width: 400, crop: :fill %>
+</div>
