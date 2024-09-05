@@ -1,11 +1,45 @@
-<%= simple_form_for(@service) do |f| %>
-  <%= f.input :title %>
-  <%= f.input :category %>
-  <%= f.input :description %>
-  <%= f.input :location %>
-  <%= f.input :availability %>
-  <%= f.input :experience %>
-  <%= f.input :rating %>
-  <%= f.input :price %>
-  <%= f.submit %>
-<% end %>
+<div class="container d-flex justify-content-center">
+  <div class="row">
+    <div class="col-md-12">
+          <%= simple_form_for(@service, html: { class: 'form-horizontal' }) do |f| %>
+          <div class="form-group">
+            <%= f.input :title, label_html: { class: 'col-sm-2 control-label' }, input_html: { class: 'form-control col-sm-10' } %>
+          </div>
+
+          <div class="form-group">
+            <%= f.input :category, label_html: { class: 'col-sm-2 control-label' }, input_html: { class: 'form-control col-sm-10' } %>
+          </div>
+
+          <div class="form-group">
+            <%= f.input :description, label_html: { class: 'col-sm-2 control-label' }, input_html: { class: 'form-control col-sm-10' } %>
+          </div>
+
+          <div class="form-group">
+            <%= f.input :location, label_html: { class: 'col-sm-2 control-label' }, input_html: { class: 'form-control col-sm-10' } %>
+          </div>
+
+          <div class="form-group">
+            <%= f.input :availability, label_html: { class: 'col-sm-2 control-label' }, input_html: { class: 'form-control col-sm-10' } %>
+          </div>
+
+          <div class="form-group">
+            <%= f.input :experience, label_html: { class: 'col-sm-2 control-label' }, input_html: { class: 'form-control col-sm-10' } %>
+          </div>
+
+          <div class="form-group">
+            <%= f.input :rating, label_html: { class: 'col-sm-2 control-label' }, input_html: { class: 'form-control col-sm-10' } %>
+          </div>
+
+          <div class="form-group">
+            <%= f.input :price, label_html: { class: 'col-sm-2 control-label' }, input_html: { class: 'form-control col-sm-10' } %>
+          </div>
+
+          <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+              <%= f.submit class: 'btn btn-primary' %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+  </div>
+</div>
