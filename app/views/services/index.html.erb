@@ -1,9 +1,12 @@
-<h1>Find a Hand</h1>
-<ul>
-  <% @services.each do |service| %>
-    <li><%= link_to service.title, service_path(service) %>
-      <%= cl_image_tag(service.photo.key,
-      width: 400, height: 300, crop: :fill) %>
-    </li>
-  <% end %>
-</ul>
+<div class="d-flex align-items">
+ <!-- Inject the grid here -->
+  <h1 class="text-center text-primary h1-sm">Find a Hand</h1>
+    <ul>
+      <% @services.each do |service| %>
+        <li><%= link_to service.title, service_path(service) %>
+          <%= cl_image_tag(service.photo.key,
+          width: 400, height: 300, crop: :fill, class: "img-fluid rounded") %>
+        </li>
+      <% end %>
+    </ul>
+</div>
