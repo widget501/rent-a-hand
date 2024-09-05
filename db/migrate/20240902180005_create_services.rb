@@ -6,7 +6,7 @@ class CreateServices < ActiveRecord::Migration[7.1]
       t.float :price
       t.text :description
       t.string :experience
-      t.string :location
+      t.string :address
       t.string :availability
       t.float :rating
       t.references :user, null: false, foreign_key: true

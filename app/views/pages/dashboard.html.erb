@@ -1,29 +1,109 @@
-<h1>Pages#home</h1>
 
-<!--Bookings I have made -->
-<h2>Bookings I have made</h2>
-  <% @bookings.each do |booking| %>
-    <li><%= booking.start_date  %> : <%= booking.status %>
-    </li>
-  <% end %>
+  <div class="container-fluid p-0">
+    <div class="row">
+      <div class="col-2">
+        <div id="sidebar" class="d-flex flex-column flex-shrink-0 p-3 bg-light position-fixed" style="width: 280px;">
+          <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
 
-<br><br>
+            <span class="fs-4">Welcome 👋</span>
+          </a>
+          <hr>
+          <ul class="nav nav-pills flex-column mb-auto">
+            <li class="nav-item">
+              <a href="#" class="nav-link active" aria-current="page">
+                <svg class="bi me-2" width="16" height="16"><use xlink:href="#home"></use></svg>
+                <i class="fa-solid fa-table-columns me-2"></i> Overview
+              </a>
+            </li>
+            <li>
+              <a href="#" class="nav-link link-dark">
+                <svg class="bi me-2" width="16" height="16"><use xlink:href="#table"></use></svg>
+                <i class="fa-solid fa-house me-2"></i>My bookings
+              </a>
+            </li>
+            <li>
+              <a href="#" class="nav-link link-dark">
+                <svg class="bi me-2" width="16" height="16"><use xlink:href="#grid"></use></svg>
+                <i class="fa-solid fa-book me-2"></i>My services
+              </a>
+            </li>
+          </ul>
+          <hr>
 
-  <!--Bookings for my service-->
-  <h2>Bookings for my service</h2>
-<% @services.each do |service| %>
-  <%= service.title  %>
-  <% service.bookings.each do |booking| %>
-  <li>
-      <%= booking.user.first_name %>
-      <%= booking.start_date %>
-      <%= booking.end_date %>
-      <%= booking.status %>
-  </li>
+        </div>
+      </div>
+      <div class="col-10 p-5 ms-sm-auto">
+        <div class="container ps-5">
 
-  <% if booking.pending! %>
-        <%= button_to 'Accept', accept_booking_path(booking), method: :patch, class: "btn btn-success" %>
-        <%= button_to 'Decline', decline_booking_path(booking), method: :patch, class: "btn btn-danger" %>
-      <% end %>
-    <% end %>
-  <% end %>
+          <div class="alert alert-primary" role="alert">
+            Check out your incoming bookings
+          </div>
+          <h1>My bookings</h1>
+          <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Status</th>
+                <th scope="col">Date</th>
+                <th scope="col">Service</th>
+                <th scope="col">Name</th>
+                <th scope="col">email address</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% @bookings.each_with_index do |booking, index| %>
+
+              <tr>
+                <th scope="row"><%= index + 1 %></th>
+                <td><%= booking.status  %></td>
+                <td><%= booking.start_date  %></td>
+                <td><%= booking.service.title  %></td>
+                <td><%= booking.service.user.first_name  %></td>
+                <td><%= booking.service.user.email  %></td>
+              </tr>
+              <% end %>
+
+            </tbody>
+          </table>
+          <h1>My Services</h1>
+          <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Date</th>
+                <th scope="col">Service</th>
+                <th scope="col">Name</th>
+                <th scope="col">email address</th>
+                <th scope="col">Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% @services.each_with_index do |service, index| %>
+                <% service.bookings.each do |booking| %>
+              <tr>
+                <th scope="row"><%= index + 1 %></th>
+                <td><%= booking.start_date  %></td>
+                <td><%= booking.service.title  %></td>
+                <td><%= booking.service.user.first_name  %></td>
+                <td><%= booking.service.user.email  %></td>
+                <td>
+                  <% if booking.pending? %>
+                  <div class="d-flex">
+                    <%= button_to 'Accept', accept_booking_path(booking), method: :patch, class: "btn btn-outline-success" %>
+                    <%= button_to 'Decline', decline_booking_path(booking), method: :patch, class: "btn btn-outline-danger" %>
+                  </div>
+                  <% else %>
+                    <%= booking.status %>
+                  <% end %>
+                </td>
+              </tr>
+                <% end %>
+              <% end %>
+
+            </tbody>
+          </table>
+        </div>
+
+      </div>
+    </div>
+  </div>
