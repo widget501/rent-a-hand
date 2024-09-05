@@ -3,15 +3,15 @@ class ServicesController < ApplicationController
     @services = Service.all
 
     # The `geocoded` scope filters only services with coordinates
-    # @services = Service.geocoded
-    # @markers = @services.geocoded.map do |service|
-    #   {
-    #     lat: service.latitude,
-    #     lng: service.longitude
-    #     info_window_html: render_to_string(partial: "info_window", locals: {service: service})
-    #     marker_html: render_to_string(partial: "marker")
-    #   }
-    # end
+    @services = Service.geocoded
+    @markers = @services.geocoded.map do |service|
+      {
+        lat: service.latitude,
+        lng: service.longitude,
+        info_window_html: render_to_string(partial: "info_window", locals: {service: service}),
+        marker_html: render_to_string(partial: "marker")
+      }
+    end
   end
 
   def show
