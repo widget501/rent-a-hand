@@ -13,11 +13,11 @@ Service.destroy_all
 
 User.destroy_all
 
-user = User.create!(email: "joe@doe.com", password: "password", address: "123 Four Street, My Town", first_name: "Joe", last_name: "Doe")
-user1 = User.create!(email: "joe1@doe.com", password: "password", address: "123 Four Street, My Town", first_name: "Joe", last_name: "Doe")
-user3 = User.create!(email: "joe2@doe.com", password: "password", address: "123 Four Street, My Town", first_name: "Joe", last_name: "Doe")
-user4 = User.create!(email: "joe3@doe.com", password: "password", address: "123 Four Street, My Town", first_name: "Joe", last_name: "Doe")
-user5 = User.create!(email: "joe4@doe.com", password: "password", address: "123 Four Street, My Town", first_name: "Joe", last_name: "Doe")
+user = User.create!(email: "joe@doe.com", password: "password", first_name: "Joe", last_name: "Doe")
+user1 = User.create!(email: "joe1@doe.com", password: "password", first_name: "Joe", last_name: "Doe")
+user3 = User.create!(email: "joe2@doe.com", password: "password", first_name: "Joe", last_name: "Doe")
+user4 = User.create!(email: "joe3@doe.com", password: "password", first_name: "Joe", last_name: "Doe")
+user5 = User.create!(email: "joe4@doe.com", password: "password", first_name: "Joe", last_name: "Doe")
 
   file = URI.open("https://res.cloudinary.com/dbsjj5ynm/image/upload/v1724965279/samples/smile.jpg")
   service = Service.new(title: "Gardener", description: "A great groundsman", price: 300, location: "123 Long Street, Gardens, 8001")
