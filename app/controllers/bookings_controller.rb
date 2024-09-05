@@ -26,8 +26,9 @@ class BookingsController < ApplicationController
     @booking = Booking.new(booking_params)
     @booking.service = @service
     @booking.user = current_user
+    @booking.pending!
     if @booking.save
-      redirect_to @booking, notice: 'Booking created successfully.'
+      redirect_to dashboard_path, notice: 'Booking created successfully.'
     else
       render :new, status: :unprocessable_entity
     end
@@ -36,7 +37,7 @@ class BookingsController < ApplicationController
   def update
     @booking = Booking.find(params[:id])
     if @booking.update(booking_params)
-      redirect_to @booking, notice: 'Booking updated successfully.', status: :see_other
+      redirect_to dashboard_path, notice: 'Booking updated successfully.', status: :see_other
     else
       render :edit, status: :unprocessable_entity
     end
@@ -45,22 +46,22 @@ class BookingsController < ApplicationController
   def destroy
     @booking = Booking.find(params[:id])
     @booking.destroy!
-    redirect to bookings_path, notice: 'Booking deleted successfully.', status: :see_other
+    redirect to dashboard_path, notice: 'Booking deleted successfully.', status: :see_other
   end
 
   def accept
     if @booking.update(status: 'accepted')
       redirect_to @booking, notice: 'Booking was successfully accepted.'
     else
-      redirect_to @booking, alert: 'Failed to accept the booking.'
+      redirect_to dashboard_path, alert: 'Failed to accept the booking.'
     end
   end
 
   def decline
     if @booking.update(status: 'declined')
-      redirect_to @booking, notice: 'Booking was successfully declined.'
+      redirect_to dashboard_path, notice: 'Booking was successfully declined.'
     else
-      redirect_to @booking, alert: 'Failed to decline the booking.'
+      redirect_to dashboard_path, alert: 'Failed to decline the booking.'
     end
   end
 

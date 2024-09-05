@@ -1,12 +1,16 @@
 <h1>Pages#home</h1>
 
 <!--Bookings I have made -->
+<h2>Bookings I have made</h2>
   <% @bookings.each do |booking| %>
     <li><%= booking.start_date  %> : <%= booking.status %>
     </li>
   <% end %>
 
+<br><br>
+
   <!--Bookings for my service-->
+  <h2>Bookings for my service</h2>
 <% @services.each do |service| %>
   <%= service.title  %>
   <% service.bookings.each do |booking| %>
