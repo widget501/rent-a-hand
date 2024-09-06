@@ -3,8 +3,8 @@ class ServicesController < ApplicationController
     @services = Service.all
 
     # The `geocoded` scope filters only services with coordinates
-    @services = Service.geocoded
-    @markers = @services.geocoded.map do |service|
+    @services2 = Service.geocoded
+    @markers = @services2.geocoded.map do |service|
       {
         lat: service.latitude,
         lng: service.longitude,
