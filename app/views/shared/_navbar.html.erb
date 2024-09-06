@@ -1,7 +1,7 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <div class="container-fluid">
     <%= link_to "#", class: "navbar-brand" do %>
-      <%= image_tag "https://res.cloudinary.com/dbsjj5ynm/image/upload/v1725564652/bullet-2157465_1280_bad0du.png" %>
+      <%= image_tag "https://res.cloudinary.com/dbsjj5ynm/image/upload/v1725617984/bullet-2157465_1280-removebg-preview_rltslr.png" %>
     <% end %>
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -12,7 +12,7 @@
       <ul class="navbar-nav me-auto">
         <% if user_signed_in? %>
           <li class="nav-item active">
-            <%= link_to "MAKE MONEY",  new_service_path, class: "btn btn-success nav-link" %>
+            <%= link_to "MAKE MONEY",  new_service_path, class: "btn btn-primary nav-link" %>
           </li>
 
           <!--<li class="nav-item">-->
@@ -30,8 +30,8 @@
             <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar", alt: "dropdown menu" %>
           </a>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <%= link_to "Action", "#", class: "dropdown-item" %>
-              <%= link_to "Another action", "#", class: "dropdown-item" %>
+              <%# <%= link_to "Action", "#", class: "dropdown-item" %>
+              <%# <%= link_to "Another action", "#", class: "dropdown-item" %> 
               <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
             </div>
           </li>

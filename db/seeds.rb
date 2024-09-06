@@ -8,7 +8,7 @@
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
 require "open-uri"
-
+Geocoder.configure(:timeout => 20)
 Service.destroy_all
 
 User.destroy_all
@@ -23,16 +23,19 @@ user4 = User.create!(email: "d@doe.com", password: "password", first_name: "D na
 user5 = User.create!(email: "e@doe.com", password: "password", first_name: "E name", last_name: "Doe")
 
 # Gardener
-  file = URI.open("https://res.cloudinary.com/dbsjj5ynm/image/upload/v1724965279/samples/smile.jpg")
-  service = Service.new(title: "Gardener", description: "A great groundsman", price: 300, address: "162 Lancia Street, Lynnwoord Ridge, Pretoria")
-  service.user = user1
+  file = URI.open("https://res.cloudinary.com/dbsjj5ynm/image/upload/v1725626628/Beardy-Gardener-Leigh-1_xp471x.jpg")
+  service = Service.new(title: "Gardener", description: "A great groundsman", price: 300, address: "123 Long Street, Cape Town")
+  service.user = user
   service.photo.attach(io: file, filename: "smile.jpg", content_type: "image/jpeg")
   service.save!
   puts "Service Gardener created successfully!"
 
+
 # Plumber
-  file = URI.open("https://res.cloudinary.com/dbsjj5ynm/image/upload/v1724965277/samples/two-ladies.jpg")
-  service = Service.new(title: "Plumber", description: "A great plumber", price: 300, address: "45 Main Road, Rondebosch, Cape Town")
+  file = URI.open("https://www.istockphoto.com/photo/heating-engineer-installing-system-gm1482775856-509601580?utm_campaign=srp_photos_bottom&utm_content=https%3A%2F%2Funsplash.com%2Fs%2Fphotos%2Fplumber%3Flicense%3Dfree&utm_medium=affiliate&utm_source=unsplash&utm_term=plumber%3A%3Areduced-affiliates%3Aquarter")
+
+  service = Service.new(title: "Plumber", description: "A great plumber", price: 300, address: "45 Main Road, Rondebosch")
+
   service.user = user1
   service.photo.attach(io: file, filename: "two-ladies.jpg", content_type: "image/jpeg")
   service.save!
@@ -55,8 +58,10 @@ user5 = User.create!(email: "e@doe.com", password: "password", first_name: "E na
   puts "Service Nanny created successfully!"
 
 # Mobile Doggie Parlour
-  file = URI.open("https://res.cloudinary.com/dbsjj5ynm/image/upload/v1724965277/samples/two-ladies.jpg")
-  service = Service.new(title: "Mobile Doggie Parlour", description: "A parlour to give your pooch a new look", price: 300, address: "89 Victoria Road, Camps Bay, Cape Town")
+  file = URI.open("https://res.cloudinary.com/dbsjj5ynm/image/upload/v1725626454/mobile_dog_l1k49e.jpg")
+
+  service = Service.new(title: "Mobile Doggie Parlour", description: "A parlour to give your pooch a new look", price: 300, address: "89 Victoria Road, Camps Bay")
+
   service.user = user4
   service.photo.attach(io: file, filename: "two-ladies.jpg", content_type: "image/jpeg")
   service.save!
