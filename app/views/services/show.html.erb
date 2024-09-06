@@ -1,6 +1,6 @@
 <div class="container d-flex align-items-center justify-content- my-5">
   <div class="card shadow-sm" style="width: 24rem;">
-    <%= cl_image_tag @service.photo.key, class: "card-img-top", style: "object-fit: cover; height: 300px; width: 100%;" %>
+    <%= cl_image_tag(@service.photo.key, class: "card-img-top", style: "object-fit: cover; height: 300px; width: 100%;") %>
     <div class="card-body">
       <h1 class="text-center text-primary h1-sm card-title"><%= @service.title %></h1>
       <p class="text-center text-secondary card-text"><%= @service.description %></p>
