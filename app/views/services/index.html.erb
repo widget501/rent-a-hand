@@ -3,8 +3,13 @@
     <ul class="d-flex flex-wrap justify-content-center p-0">
       <% @services.each do |service| %>
         <li class="p-2 card"><%= link_to service.title, service_path(service) %>
+        <% if service.photo.attached? %>
           <%= cl_image_tag(service.photo.key,
           width: 400, height: 300, crop: :fill, class: "img-fluid rounded") %>
+          <% else %>
+            <%= image_tag("logo.png",
+          width: 400, height: 300, crop: :fill, class: "img-fluid rounded")  %>
+        <% end %>
         </li>
       <% end %>
     </ul>
