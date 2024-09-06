@@ -43,11 +43,11 @@
             <thead>
               <tr>
                 <th scope="col">#</th>
-                <th scope="col">Status</th>
                 <th scope="col">Date</th>
                 <th scope="col">Service</th>
                 <th scope="col">Name</th>
                 <th scope="col">email address</th>
+                <th scope="col">Status</th>
               </tr>
             </thead>
             <tbody>
@@ -55,11 +55,11 @@
 
               <tr>
                 <th scope="row"><%= index + 1 %></th>
-                <td><%= booking.status  %></td>
                 <td><%= booking.start_date  %></td>
                 <td><%= booking.service.title  %></td>
                 <td><%= booking.service.user.first_name  %></td>
                 <td><%= booking.service.user.email  %></td>
+                <td><%= booking.status  %></td>
               </tr>
               <% end %>
 
@@ -80,22 +80,22 @@
             <tbody>
               <% @services.each_with_index do |service, index| %>
                 <% service.bookings.each do |booking| %>
-              <tr>
-                <th scope="row"><%= index + 1 %></th>
-                <td><%= booking.start_date  %></td>
-                <td><%= booking.service.title  %></td>
-                <td><%= booking.service.user.first_name  %></td>
-                <td><%= booking.service.user.email  %></td>
-                <td>
-                  <% if booking.pending? %>
-                  <div class="d-flex">
-                    <%= button_to 'Accept', accept_booking_path(booking), method: :patch, class: "btn btn-outline-success" %>
-                    <%= button_to 'Decline', decline_booking_path(booking), method: :patch, class: "btn btn-outline-danger" %>
-                  </div>
-                  <% else %>
-                    <%= booking.status %>
-                  <% end %>
-                </td>
+                <tr>
+                  <th scope="row"><%= index + 1 %></th>
+                  <td><%= booking.start_date  %></td>
+                  <td><%= booking.service.title  %></td>
+                  <td><%= booking.service.user.first_name  %></td>
+                  <td><%= booking.service.user.email  %></td>
+                  <td>
+                    <% if booking.pending? %>
+                    <div class="d-flex">
+                      <%= button_to 'Accept', accept_booking_path(booking), method: :patch, class: "btn btn-outline-success" %>
+                      <%= button_to 'Decline', decline_booking_path(booking), method: :patch, class: "btn btn-outline-danger" %>
+                    </div>
+                    <% else %>
+                      <%= booking.status %>
+                    <% end %>
+                  </td>
               </tr>
                 <% end %>
               <% end %>
